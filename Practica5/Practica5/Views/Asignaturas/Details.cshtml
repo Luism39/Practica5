@@ -1,0 +1,42 @@
+﻿@model Practica5.Models.Asignaturas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Asignaturas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cuatrimestre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cuatrimestre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Asignaturas1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Asignaturas1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

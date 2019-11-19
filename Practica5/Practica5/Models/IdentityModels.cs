@@ -29,5 +29,7 @@ namespace Practica5.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Practica5.Models.Asignaturas> Asignaturas { get; set; }
     }
 }
