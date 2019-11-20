@@ -1,0 +1,71 @@
+﻿@using Practica5.Models
+@model IEnumerable<Data>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+
+        body{
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        table{
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        table th{
+            background-color: #BBDBFD;
+            color: #333;
+            font-weight: bold;
+        }
+
+        table th, table td{
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Lector", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="postedFile"/>
+        <input type="submit" value="Importar"/>
+    }
+
+    @if (Model.Count() > 0)
+    {
+        <hr/>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>País</th>
+            </tr>
+            @foreach (Data dato in Model)
+            {
+
+              <tr>
+
+                <td>@dato.Id</td>
+                <td>@dato.Nombre</td>
+                <td>@dato.Pais</td>
+
+              </tr>
+            }
+        </table>
+    }
+    
+</body>
+</html>
