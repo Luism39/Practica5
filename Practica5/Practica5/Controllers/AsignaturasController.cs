@@ -15,9 +15,20 @@ namespace Practica5.Controllers
         private Practica5Entities3 db = new Practica5Entities3();
 
         // GET: Asignaturas
-        public ActionResult Index()
+        public ActionResult Index(string busqueda)
         {
-            return View(db.Asignaturas.ToList());
+            var lista = from x in db.Asignaturas select x;
+
+            if (string.IsNullOrEmpty(busqueda))
+            {
+                return View(db.Asignaturas.ToList());
+
+            }
+            else
+            {
+                lista = lista.Where(a => a.Nombre.Contains(busqueda));
+                return View(lista);
+            }
         }
 
         // GET: Asignaturas/Details/5
