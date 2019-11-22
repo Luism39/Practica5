@@ -13,6 +13,12 @@ namespace Practica5.Controllers
             return View();
         }
 
+        public ActionResult Agenda()
+        {
+            return View();
+        }
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Datos Personales";

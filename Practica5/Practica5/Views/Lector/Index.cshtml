@@ -1,8 +1,12 @@
 ﻿@using Practica5.Models
 @model IEnumerable<Data>
 
+<!--------{
+    Layout = "Home Page";
+}-->
+
 @{
-    Layout = null;
+    ViewBag.Title = "Home Page";
 }
 
 <!DOCTYPE html>
@@ -13,66 +17,71 @@
     <title>Index</title>
     <style type="text/css">
 
-        body{
+        body {
             font-family: Arial;
             font-size: 10pt;
         }
 
-        table{
+        table {
             border: 1px solid #ccc;
             border-collapse: collapse;
             background-color: #fff;
         }
 
-        table th{
-            background-color: #BBDBFD;
-            color: #333;
-            font-weight: bold;
-        }
+            table th {
+                background-color: #BBDBFD;
+                color: #333;
+                font-weight: bold;
+            }
 
-        table th, table td{
-            padding: 5px;
-            border: 1px solid #ccc;
-        }
-
+            table th, table td {
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
     </style>
 </head>
 <body>
     @using (Html.BeginForm("Index", "Lector", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+
     {
-        <input type="file" accept=".csv" name="postedFile"/>
-        <input type="submit" value="Importar"/>
-    }
-
-    @if (Model.Count() > 0)
-    {
-        
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <!--<th>Columna1</th>
-        <th>Columna2</th>
-        <th>Columna3</th>
-    </tr>-->
-
-                @foreach (Data dato in Model)
-                {
-
-<tr>
-
-            <td>@dato.C1</td>
-            <td>@dato.C2</td>
-            <td>@dato.C3</td>
-            <td>@dato.C4</td>
-            <td>@dato.C5</td>
-            <td>@dato.C6</td>
-            <td>@dato.C7</td>
-            <td>@dato.C8</td>
-            <td>@dato.C9</td>
-
-        </tr>
+    <div class="jumbotron">
+        <h4>Nota: Archivos .csv Only</h4><br />
+        <input type="file" accept=".csv" name="postedFile" /><br />
+        <input type="submit" value="Importar" />
+    </div>
             }
-        </table>
-    }
-    
-</body>
+        
+
+        @if (Model.Count() > 0)
+        {
+
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <!--<th>Columna1</th>
+                        <th>Columna2</th>
+                        <th>Columna3</th>
+                    </tr>-->
+
+                    @foreach (Data dato in Model)
+                    {
+
+                    <tr>
+
+                        <td>@dato.C1</td>
+                        <td>@dato.C2</td>
+                        <td>@dato.C3</td>
+                        <td>@dato.C4</td>
+                        <td>@dato.C5</td>
+                        <td>@dato.C6</td>
+                        <td>@dato.C7</td>
+                        <td>@dato.C8</td>
+                        <td>@dato.C9</td>
+
+                    </tr>
+                }
+                </table>
+            }
+
+    </body>
 </html>
